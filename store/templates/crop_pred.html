@@ -1,5 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Crop Prediction</h1>
+ <br><br>
+  <h2>Crop Prediction</h2>
+
+
+  <button class = "geeks" style="margin-left:150px;" onclick="getlocation()">Click</button>
+  <p id="demo1"></p>
+
+
+<form action="{% url 'resultpage' %}" style="width:40%;" class="mx-auto">
+
+  {% csrf_token %}
+
+  <div class="mb-3">
+    <label class="form-label">Temperature</label>
+    <input type="text" class="form-control" name="temperature" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Humidity</label>
+    <input type="text" class="form-control" name='humidity' required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">pH value</label>
+    <input type="text" class="form-control" name='ph' required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Rainfall</label>
+    <input type="text" class="form-control" name='rainfall' required>
+  </div>
+  <button type="submit" value="submit" class="btn btn-primary">Predict</button>
+</form>
+
+   <script>
+        var variable1 = document.getElementById("demo1");
+        function getlocation(){
+                navigator.geolocation.getCurrentPosition(showLoc);
+        }
+        function showLoc(pos){
+                variable1.innerHTML = "Latitude: " + pos.coords.latitude + 
+                "<br>Longitude: " + pos.coords.longitude; 
+            }
+   </script>
+
 {% endblock %}

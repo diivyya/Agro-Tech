@@ -1,38 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="container-fluid">
-<div class="row">
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+      <h1>Your New Online Presence with Us</h1>
+      <h2>We are team AgroTech, making your life easy!</h2>
+      <a href="#cta" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section>
+  <main id="main">
 
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
 
-<!--filters-->
-
-<div class="col-lg-2 mx-auto">
-  <div class="list-group">
-  <a href="/" class="list-group-item list-group-item-action"><b>All Products</b></a>
-  {% for category in categories %}
-     <a href="/?category={{category.id}}" class="list-group-item list-group-item-action">{{category.name}}</a>
-  {% endfor %}
-  </div>
-</div>
-
-
-<!--All products-->
-  <div id='products' class="col-lg-10 mx-auto">
-     <div class="row mx-auto">
-    {% for product in products %}
-           <div class="card mx-auto mb-4" style="width: 18rem;">
-           <img src="{{product.image.url}}" class="card-img-top" alt="image">
-           <div class="card-body">
-           <h5 class="card-title">{{product.name}}</h5>
-           <p class="card-text">{{product.price}}/- {{product.description}}</p>
-          <a href="tel:{{product.phoneno}}" class="btn btn-light border btn-sm">Call</a>
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <h2>About Us</h2>
+            <h3>We are developer and Students of MANIT Bhopal with our project AgroTech</h3>
           </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+            <p>
+              This web based application is a complete package for farmers who are not much experienced in farming, have a small land and are living in the vicious cycle of middleman and vendors as well as retailers who wants to buy food essentials from anywhere to find good quality and price. This application: 
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> It gives complete information about what crop to grow, what fertilizers and pesticides to use depending upon land condition and weather conditions.</li>
+              <li><i class="ri-check-double-line"></i> It provides a platform that connects farmers directly to consumers or retailers thus, eliminates middlemen.</li>
+              <li><i class="ri-check-double-line"></i> It can be used by both farmers as well as retailers/consumers accordingly.</li>
+            </ul>
           </div>
-    {% endfor %}
-   </div>
-  </div>
-</div>
-</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container mb-6">
+
+        <div class="text-center" data-aos="zoom-in">
+          <h3>Farmers! Suit up and Call Us..</h3>
+          <p>If you ever feel to reach out to the buyers on our platform, just call us!</p>
+          <a class="cta-btn" href="tel:9999999999">Call To Action</a>
+        </div>
+
+      </div>
+    </section>
+
+    
+  </main>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 {% endblock %}
-
