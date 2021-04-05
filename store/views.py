@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from .models.product import Product
 from .models.category import Category
 import joblib
-import pandas as pd
 # Create your views here.
 
 def etrade(request):
