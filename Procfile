@@ -1,1 +1,1 @@
-web: gunicorn agrotech-production.wsgi
+web:gunicorn agrotech-production.wsgi
