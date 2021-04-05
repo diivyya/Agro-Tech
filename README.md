@@ -2,7 +2,6 @@
 
 ![logo](https://user-images.githubusercontent.com/68610804/112413250-e4740280-8d45-11eb-9515-bcdab5b3cad8.jpeg)
 
-## Demo: https://agrotech-production.herokuapp.com/
 
 ## Features
 
