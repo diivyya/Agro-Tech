@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models.product import Product
 from .models.category import Category
 import joblib
-
+import pandas as pd
 # Create your views here.
 
 def etrade(request):
@@ -22,19 +22,34 @@ def etrade(request):
 def index(request):
     return render(request,'index.html')
 
-
 def crop_pred(request):
     return render(request,'crop_pred.html')
 
-def result(request):
+def predict(request):
+    data = []
+    data.append(request.POST.get('tempVal'))
+    data.append(request.POST.get('humidityVal'))
+    data.append(request.POST.get('phVal'))
+    data.append(request.POST.get('rainfallVal'))
 
     md = joblib.load('final_model.sav')
+    predictcrop=[data]
+    # Putting the names of crop in a single list
+    crops=['wheat','mungbean','Tea','millet','maize','lentil','jute','cofee','cotton','ground nut','peas','rubber','sugarcane','tobacco','kidney beans','moth beans','coconut','blackgram','adzuki beans','pigeon peas','chick peas','banana','grapes','apple','mango','muskmelon','orange','papaya','watermelon','pomegranate']
+    cr='rice'
+    predictions = md.predict(predictcrop)
+    count=0
+    for i in range(0,30):
+        if(predictions[0][i]==1):
+            c=crops[i]
+            count=count+1
+            break
+        i=i+1
+    if(count==0):
+        context = {'ans': cr}
+    else:
+        context = {'ans': c}
+    return render(request,'crop_pred.html',context)
 
-    lis = []
-    lis.append(request.GET.get('temperature'))
-    lis.append(request.GET.get('humidity'))
-    lis.append(request.GET.get('ph'))
-    lis.append(request.GET.get('rainfall'))
 
-    ans = md.predict([lis])
-    return render(request,'result.html',ans)
+

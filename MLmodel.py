@@ -57,3 +57,8 @@ plt.plot(range(1, 40), acc, color='red', linestyle='dashed', marker='o',markerfa
 plt.title('Accuracy Rate K Value')
 plt.xlabel('K Value')
 plt.ylabel('Mean Error')
+
+#knn
+#logistic
+#linear regression
+#cnn
