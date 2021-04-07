@@ -25,27 +25,3 @@ clf=RandomForestClassifier(n_estimators=100)
 clf.fit(X_train,y_train)
 file_name = 'final_model.sav'
 joblib.dump(clf, file_name)
-'''
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
-
-#Importing Decision Tree classifier
-from sklearn.tree import DecisionTreeRegressor
-clf=DecisionTreeRegressor()
-
-#Fitting the classifier into training set
-clf.fit(X_train,y_train)
-pred=clf.predict(X_test)
-
-from sklearn.metrics import accuracy_score
-# Finding the accuracy of the model
-a=accuracy_score(y_test,pred)
-print("The accuracy of this model is: ", a*100)
-
-
-file_name = 'final_model.sav'
-joblib.dump(clf, file_name)
-
-'''
