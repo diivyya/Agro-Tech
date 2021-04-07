@@ -2,7 +2,6 @@
 
 {% block content %}
  <br><br>
-  <h2>Crop Prediction</h2>
 
 <!--
   <button class = "geeks" style="margin-left:150px;" onclick="getlocation()">Click</button>
@@ -16,25 +15,25 @@
 
   <div class="mb-3">
     <label class="form-label">Temperature</label>
-    <input type="text" class="form-control" name="tempVal" required>
+    <input type="text" class="form-control" name="tempVal" placeholder="Enter temperature" required>
   </div>
   <div class="mb-3">
     <label class="form-label">Humidity</label>
-    <input type="text" class="form-control" name='humidityVal' required>
+    <input type="text" class="form-control" name='humidityVal' placeholder="Enter humidity" required>
   </div>
   <div class="mb-3">
     <label class="form-label">pH value</label>
-    <input type="text" class="form-control" name='phVal' required>
+    <input type="text" class="form-control" name='phVal' placeholder="Enter pH" required>
   </div>
   <div class="mb-3">
     <label class="form-label">Rainfall</label>
-    <input type="text" class="form-control" name='rainfallVal' required>
+    <input type="text" class="form-control" name='rainfallVal' placeholder="Enter rainfall value" required>
   </div>
   <button type="submit" value="submit" class="btn btn-primary">Predict</button>
 </form>
 <br>
 {% if ans %}
-<h4>The Predicted Crop is {{ans}}</h4>
+<h2><pre><mark>The Predicted Crop is {{ans}}</mark></pre></h2>
 {% endif %}
 
 <!--

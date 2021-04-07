@@ -20,6 +20,12 @@ test=data.iloc[: ,4:].values
 #Dividing the data into training and test set
 X_train,X_test,y_train,y_test=train_test_split(train,test,test_size=0.3)
 
+from sklearn.ensemble import RandomForestClassifier
+clf=RandomForestClassifier(n_estimators=100)
+clf.fit(X_train,y_train)
+file_name = 'final_model.sav'
+joblib.dump(clf, file_name)
+'''
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
@@ -42,23 +48,4 @@ print("The accuracy of this model is: ", a*100)
 file_name = 'final_model.sav'
 joblib.dump(clf, file_name)
 
-#Importing KNN classifier
-from sklearn.neighbors import KNeighborsClassifier
-
-acc = []
-for i in range(1, 40):
-    knn = KNeighborsClassifier(n_neighbors=i)
-    knn.fit(X_train, y_train)
-    pred_i = knn.predict(X_test)
-    acc.append(np.mean(100-(pred_i != y_test)))
-      
-plt.figure(figsize=(12, 6))
-plt.plot(range(1, 40), acc, color='red', linestyle='dashed', marker='o',markerfacecolor='blue', markersize=10)
-plt.title('Accuracy Rate K Value')
-plt.xlabel('K Value')
-plt.ylabel('Mean Error')
-
-#knn
-#logistic
-#linear regression
-#cnn
+'''
